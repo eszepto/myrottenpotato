@@ -12,3 +12,6 @@
     = date_select :movie, :release_date
 
     = submit_tag 'Save Changes'
+
+= form_tag movies_path, :method => :get do
+    = submit_tag 'Cancel'
