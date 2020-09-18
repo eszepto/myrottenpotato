@@ -13,5 +13,5 @@
 
     = submit_tag 'Save Changes'
 
-= form_tag movies_path, :method => :get do
+= form_tag movie_path(@movie.id), :method => :get do
     = submit_tag 'Cancel'
