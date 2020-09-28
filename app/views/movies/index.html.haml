@@ -8,14 +8,18 @@
             %th Movie Title
             %th Rating
             %th Release Date
-            %th More Info
+            %th Reviews
     %tbody
     - @movies.each_with_index do |movie, index|
         %tr
             %td= index+1
-            %td= movie.title
+            %td= link_to movie.title, movie_path(movie)
             %td= movie.rating
             %td= movie.release_date
-            %td= link_to "More about #{movie.title}", movie_path(movie)
+            %td= link_to 'see reviews'
             
-    = link_to 'Add new movie', new_movie_path    
+    = link_to 'Add new movie', new_movie_path   
+= form_tag seach_path, :method => :get do
+    = label  :q, 'search movie'
+    = text_field_tag :q
+    = submit_tag 'search'

@@ -51,4 +51,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #use Haml for templates
 gem 'haml'
-# use Ruby debugger
+
+#use for sending http request
+gem 'httparty'
+
+#use for storing keys
+gem 'dotenv-rails', groups: [:development, :test]

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search movie</title>
+    
+</head>
+<body>
+    <style>
+    </style>
+    <h1>Search Result for '<%= @query_word %>'</h1>
+    <table>
+        <thead>
+            <tr>
+                <th><h3>Image</h3></th>
+                <th><h3>Title</h3></th>
+                <th><h3>Release</h3></th>
+                <th><h3>Overview</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @movie_result.each do |movie| %>
+            <tr>
+                <td style="width:30%">
+                    <img src="https://image.tmdb.org/t/p/w220_and_h330_face<%= movie['poster_path']%>">
+                </td>
+                <td style="width:20%">
+                    <%= movie["title"] %>
+                </td>
+                <td style="width:10%">
+                    <%= movie["release_date"] %>
+                </td>
+                <td style="width:40%">
+                    <%= movie["overview"] %>
+                </td>
+            </tr>
+            
+            <% end %>
+        </tbody>
+    </table>
+</body>
+</html>
