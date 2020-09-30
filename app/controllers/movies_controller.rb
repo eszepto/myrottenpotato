@@ -39,5 +39,20 @@ class MoviesController < ApplicationController
         params.require(:movie).permit(:title, :rating, :release_date, :description)
     end
     
+    def movies_with_good_reviews
+        @movies = Movie.joins(:reviews).group(:movie_id).
+          having('AVG(reviews.potatoes) > 3')
+    end
+
+    def movies_for_kids
+        @movies = Movie.where('rating in ?', %w(G PG))
+    end
+
+    def movies_with_filters
+        @movies = Movie.with_good_reviews(params[:threshold])
+        %w(for_kids with_many_fans recently_reviewed).each do |filter|
+          @movies = @movies.send(filter) if params[filter]
+        end
+    end
     
 end

@@ -16,10 +16,10 @@
             %td= link_to movie.title, movie_path(movie)
             %td= movie.rating
             %td= movie.release_date
-            %td= link_to 'see reviews'
+            
             
     = link_to 'Add new movie', new_movie_path   
-= form_tag seach_path, :method => :get do
+= form_tag search_path, :method => :get do
     = label  :q, 'search movie'
     = text_field_tag :q
     = submit_tag 'search'

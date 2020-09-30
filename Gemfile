@@ -57,3 +57,5 @@ gem 'httparty'
 
 #use for storing keys
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'omniauth-twitter'
