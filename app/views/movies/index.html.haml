@@ -12,7 +12,7 @@
             %th Reviews
     %tbody
     - @movies.each_with_index do |movie, index|
-        %tr
+        %tr{:class => ('adult ' unless movie.rating =~ /^G| PG$ /)}
             %td= index+1
             %td= link_to movie.title, movie_path(movie)
             %td= movie.rating
@@ -24,3 +24,5 @@
     = label  :q, 'search movie'
     = text_field_tag :q
     = submit_tag 'search'
+
+= javascript_pack_tag 'movie_list_filter'
