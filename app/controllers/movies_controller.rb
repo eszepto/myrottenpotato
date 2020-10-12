@@ -6,11 +6,14 @@ class MoviesController < ApplicationController
     end
 
     def show
-        id = params[:id] # retrieve movie ID from URI route
-        @movie = Movie.find(id) # look up movie by unique ID
-        # will render app/views/movies/show.html.haml by default
+        id = params[:id]
+        @movie = Movie.find(id)
+        if @current_user
+            @review = @movie.reviews.find_by(:moviegoer_id => @current_user.id)
+        end
+        render(:partial => 'movie_popup', :object=>@movie) if request.xhr?
     end
-
+    
     def create
         @movie = Movie.create!(movie_params)
         flash[:notice] = "#{@movie.title} was successfully created."

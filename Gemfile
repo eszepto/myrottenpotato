@@ -44,7 +44,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
-   gem 'cucumber-rails'
+  gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
   gem 'database_cleaner' # to clear Cucumber's test database between runs
   gem 'capybara'         # lets Cucumber pretend to be a web browser
@@ -65,6 +65,3 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'omniauth-twitter'
 
-group :test do
- 
-end

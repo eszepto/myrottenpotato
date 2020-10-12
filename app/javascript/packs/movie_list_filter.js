@@ -20,6 +20,6 @@ var MovieListFilter = {
     }
   }
   
-    $(MovieListFilter.setup);
-    console.log("Abc")
+  $(MovieListFilter.setup);
+    
  

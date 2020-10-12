@@ -1,7 +1,13 @@
 
-= render 'sessions/login'
-%h1 All Movies
 
+%h1 All Movies
+= link_to 'Add new movie', new_movie_path 
+
+
+\
+\
+\
+\
 %table#movies
     %thead
         %tr
@@ -9,20 +15,22 @@
             %th Movie Title
             %th Rating
             %th Release Date
-            %th Reviews
+            %th More Info
     %tbody
     - @movies.each_with_index do |movie, index|
-        %tr{:class => ('adult ' unless movie.rating =~ /^G| PG$ /)}
+        %tr{class: movie.rating}
             %td= index+1
-            %td= link_to movie.title, movie_path(movie)
+            %td= movie.title
             %td= movie.rating
             %td= movie.release_date
+            %td= link_to "More about #{movie.title}", movie_path(movie)
             
             
-    = link_to 'Add new movie', new_movie_path   
+      
 = form_tag search_path, :method => :get do
-    = label  :q, 'search movie'
-    = text_field_tag :q
-    = submit_tag 'search'
+    = label  :search_terms, 'search movie'
+    = text_field_tag :search_terms
+    = submit_tag 'Search TMDb'
 
 = javascript_pack_tag 'movie_list_filter'
+= javascript_pack_tag 'movie_popup'

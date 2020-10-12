@@ -4,13 +4,15 @@
     %head
         %title RottenPotatoes!
         = stylesheet_link_tag 'application'
-        
+        = javascript_pack_tag 'application'
         = csrf_meta_tags
 
     %body
-    #main
-        = yield
-        - if flash[:notice]
-            #notice.message= flash[:notice]
-        - elsif flash[:warning]
-            #warning.message= flash[:warning]
+        %h1.title Rotten Potatoes!
+        = render 'sessions/login'
+        #main
+            = yield
+            - if flash[:notice]
+                #notice.message= flash[:notice]
+            - elsif flash[:warning]
+                #warning.message= flash[:warning]

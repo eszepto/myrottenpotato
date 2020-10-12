@@ -57,6 +57,11 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
 
+When /^(?:|I )click "([^"]*)"$/ do |element|
+  click_on(element)
+end
+
+
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -252,3 +257,7 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /I wait to see "([^"]*)"$/ do |text|
+  wait_until { page.has_content? text }
+end 
