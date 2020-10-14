@@ -22,7 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: myrottenpotato_development
-  pool: 5
-  username: myrottenpotato
+  host: localhost
+  username: user
+  database: app-dev
