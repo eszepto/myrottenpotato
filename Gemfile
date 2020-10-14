@@ -63,7 +63,8 @@ gem 'haml'
 gem 'httparty'
 
 #use for storing keys
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
+gem 'dotenv'
 
 gem 'omniauth-twitter'
 
