@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
     require 'httparty'
     require 'dotenv/load'
-    Dotenv.load
 
     protect_from_forgery with: :exception
     before_action :set_current_user

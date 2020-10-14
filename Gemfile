@@ -69,6 +69,7 @@ gem 'omniauth-twitter'
 
 gem 'themoviedb'
 
-gem 'pg'
+gem 'pg', group: :production # Added postgres and made it production only.
 
 gem 'listen', '~> 3.2'
+gem 'rails_12factor'
